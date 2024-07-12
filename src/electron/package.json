@@ -1,0 +1,11 @@
+{
+  "name": "cordova-plugin-x-toast",
+  "description": "Electron Native Support for cordova-plugin-x-toast",
+  "main": "index.js",
+  "cordova": {
+    "serviceName": "Toast"
+  },
+  "dependencies": {
+    "electron": "^29.0.0"
+  }
+}

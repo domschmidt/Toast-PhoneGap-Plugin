@@ -87,4 +87,9 @@
     </config-file>
   </platform>
 
+  <!-- electron -->
+  <platform name="electron">
+    <framework src="src/electron" />
+  </platform>
+
 </plugin>
