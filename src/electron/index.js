@@ -23,16 +23,27 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // https://www.electronjs.org/docs/api/shell
 const {Notification} = require('electron')
 
+var lastDisplayedNotification = null;
+
 module.exports = {
     show: function (args) {
-        console.log(args)
-        var message = JSON.parse(decodeURIComponent(args[0]));
-
         var notification = new Notification({
-            body: message
+            body: args[0].message
         });
 
+        if (lastDisplayedNotification !== null) {
+            lastDisplayedNotification.close();
+        }
+
+        lastDisplayedNotification = notification;
+
         notification.show();
+    },
+    hide: function() {
+        if (lastDisplayedNotification !== null) {
+            lastDisplayedNotification.close();
+            lastDisplayedNotification = null;
+        }
     }
 };
 
